@@ -1,0 +1,38 @@
+<?php return array (
+  0 => 
+  array (
+    'GET' => 
+    array (
+      '/' => 'route0',
+      '/demo' => 'route1',
+      '/hello' => 'route2',
+      '/member/login' => 'route3',
+      '/member/logout' => 'route4',
+    ),
+    'POST' => 
+    array (
+      '/member/login' => 'route3',
+    ),
+  ),
+  1 => 
+  array (
+    'GET' => 
+    array (
+      0 => 
+      array (
+        'regex' => '~^(?|/hello/([^/]+))$~',
+        'routeMap' => 
+        array (
+          2 => 
+          array (
+            0 => 'route2',
+            1 => 
+            array (
+              'name' => 'name',
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+);

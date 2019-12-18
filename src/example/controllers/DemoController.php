@@ -20,7 +20,7 @@ class DemoController
         $this->product = $product;
     }
 
-    public function __invoke(Response $response, array $args)
+    public function __invoke(Request $request, Response $response, array $args)
     {
         $args = [
             'product' => $this->product->getAll(),
