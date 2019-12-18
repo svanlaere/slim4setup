@@ -7,7 +7,7 @@ namespace Example\Controllers;
 use Slim\Psr7\Request;
 use Slim\Psr7\Response;
 use Slim\Views\Twig;
-use App\Models\Product;
+use Example\Models\Product;
 
 class DemoController
 {
