@@ -1,5 +1,7 @@
 {
+    "name": "svanlaere/slim4setup",
     "require": {
+        "php": "^7.4",
         "php-di/php-di": "^6.0",
         "selective/samesite-cookie": "^0.1.0",
         "slim/csrf": "^1.0",
