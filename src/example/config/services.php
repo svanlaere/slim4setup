@@ -7,16 +7,17 @@ use Psr\Container\ContainerInterface;
 use Slim\Csrf\Guard;
 use Slim\Views\PhpRenderer;
 use Slim\Views\Twig;
+use Twig\Extension\DebugExtension;
 
 return [
     Twig::class => function (ContainerInterface $container) {
-        $twig = new Twig(APP_PATH . DS . 'views', [
+        $twig = Twig::create(APP_PATH . DS . 'views', [
             'cache' => CACHE_PATH,
             'debug' => true,
             'auto_reload' => true,
         ]);
 
-        $twig->addExtension(new Twig_Extension_Debug());
+        $twig->addExtension(new DebugExtension());
         $twig->addExtension(new CsrfExtension($container->get(Guard::class)));
 
         return $twig;

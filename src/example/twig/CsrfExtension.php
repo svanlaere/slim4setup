@@ -18,7 +18,7 @@ class CsrfExtension extends \Twig\Extension\AbstractExtension implements \Twig\E
         $this->csrf = $csrf;
     }
 
-    public function getGlobals()
+    public function getGlobals(): array
     {
         // CSRF token name and value
         $csrfNameKey = $this->csrf->getTokenNameKey();
