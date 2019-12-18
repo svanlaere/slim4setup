@@ -3,7 +3,6 @@
 {% if name is defined and name is not null %}
 <h1>Hello {{ name }}</h1>
 {% endif %}
-{% if is_current_url('home')  %}
 	<div class="table-responsive">
 		<table class="table table-sm">
 			<thead>
@@ -56,6 +55,7 @@
 			</tbody>
 		</table>
     </div>
+	{% if is_current_url('home')  %}
 	{% if csrf is defined and csrf.value is not null %}
     <h2 class="mt-4">
 		CSRF Twig extension
