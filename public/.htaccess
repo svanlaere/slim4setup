@@ -1,0 +1,26 @@
+<IfModule mod_headers.c>
+    #Header always set Content-Security-Policy "default-src 'self' http://slim4test2.test http://*.slim4test2.test"
+    #Header always set X-Content-Security-Policy "default-src 'self' http://slim4test2.test http://*.slim4test2.test"
+	#Header always set Feature-Policy "microphone 'none'; payment 'none'; sync-xhr 'self' http://slim4test2.test"
+	#Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+	#Header always set Access-Control-Allow-Origin "*"
+    #Header always set Access-Control-Max-Age "1000"
+    #Header always set Access-Control-Allow-Headers "Accept, Accept-Encoding, Authorization, Content-Type, Client-Security-Token, Origin, X-Requested-With, X-Token-Auth"
+    #Header always set Access-Control-Allow-Methods "GET, DELETE, PATCH, POST, PUT, OPTIONS"
+	#Header always set Referrer-Policy "same-origin"
+	#Header always set X-Frame-Options "sameorigin"
+	#Header always set X-XSS-Protection "1; mode=block"
+	#Header always set X-Content-Type-Options "nosniff"
+	#Header set Expect-CT "max-age=7776000, enforce"
+	#Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+	#Header always edit Set-Cookie (.*) "$1; HTTPOnly; Secure; SameSite=Lax"
+    #Header unset X-Powered-By
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>

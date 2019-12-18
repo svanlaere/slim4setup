@@ -1,0 +1,10 @@
+<h1>Demo</h1>
+{% if product is defined  %}
+<ul>
+{% for row in product %}
+<li>{{ row.name|e }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>Er zijn nog geen producten.</p>
+{% endif %}

@@ -1,0 +1,23 @@
+{
+    "require": {
+        "slim/slim": "4.3",
+        "slim/psr7": "0.6.0",
+        "slim/twig-view": "3.0.0-beta",
+        "php-di/php-di": "6.0",
+        "vlucas/phpdotenv": "^4.0",
+        "selective/samesite-cookie": "^0.1.0",	
+        "slim/csrf": "^1.0",
+        "slim/php-view": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Example\\": "src/example"
+        }
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "minimum-stability": "dev",
+        "preferred-install": "source",
+        "optimize-autoloader": true
+    }
+}
