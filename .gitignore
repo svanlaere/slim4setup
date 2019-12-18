@@ -1,3 +1,6 @@
 vendor/
+.env
 composer.lock
 /**/cache/
+src/example/config/.env
+src/example/config/.env

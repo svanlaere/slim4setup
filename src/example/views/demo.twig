@@ -1,10 +1,28 @@
+{% extends 'html.twig' %}
+{% block contents %}
+{% if name is defined and name is not null %}
+<h1>Hello {{ name }}</h1>
+{% endif %}
+<div class="table-responsive">
+{% if product is not defined  %}
+<p>Er zijn nog geen producten.</p>
+{% endif %}		
+<table class="table table-sm">
+<thead>
+<tr>
+<th scope="col">Products</th>
+</tr>
+</thead>
+<tbody>		
 <h1>Demo</h1>
 {% if product is defined  %}
-<ul>
 {% for row in product %}
-<li>{{ row.name|e }}</li>
+<tr>
+<td>{{ row.name|e }}</td>
+</tr>
 {% endfor %}
-</ul>
-{% else %}
-<p>Er zijn nog geen producten.</p>
-{% endif %}
+{% endif %}			
+</tbody>
+</table>
+</div>
+{% endblock %}
