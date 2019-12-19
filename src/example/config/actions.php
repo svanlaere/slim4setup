@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use Example\Controllers\DemoController;
 use Example\Controllers\HelloController;
 use Example\Controllers\HomeController;
-use Example\Controllers\DemoController;
 use Example\Models\Product;
 use Psr\Container\ContainerInterface;
 use Slim\Views\Twig;
