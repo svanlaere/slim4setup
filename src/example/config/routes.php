@@ -2,14 +2,17 @@
 
 declare(strict_types=1);
 
+use Example\Controllers\DemoController;
+use Example\Controllers\HelloController;
+use Example\Controllers\HomeController;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 return function (App $app) {
 
-    $app->get('/', Example\Controllers\HomeController::class)->setName('home');
-    $app->get('/demo', Example\Controllers\DemoController::class)->setName('demo');
-    $app->get('/hello[/{name}]', Example\Controllers\HelloController::class)->setName('hello');
+    $app->get('/', HomeController::class)->setName('home');
+    $app->get('/demo', DemoController::class)->setName('demo');
+    $app->get('/hello[/{name}]', HelloController::class)->setName('hello');
 
     // Example of how to use a route group 
     $app->group('/member', function (Group $group) {
