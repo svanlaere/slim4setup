@@ -22,9 +22,9 @@ class DemoController
 
     public function __invoke(Request $request, Response $response, array $args)
     {
-        $args = [
+        $vars = [
             'product' => $this->product->getAll(),
         ];
-        return $this->view->render($response, 'demo.twig', $args);
+        return $this->view->render($response, 'demo.twig', $vars);
     }
 }
