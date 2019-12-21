@@ -11,7 +11,6 @@ use Twig\Extension\DebugExtension;
 
 return [
     Twig::class => function (ContainerInterface $container) {
-        // Updated to use twig-view v3.0.0
         $twig = Twig::create(APP_PATH . DS . 'views', [
             'cache' => CACHE_PATH,
             'debug' => true,
