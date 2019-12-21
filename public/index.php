@@ -13,10 +13,10 @@ ini_set('default_charset', 'UTF-8');
 date_default_timezone_set('Europe/Amsterdam');
 setlocale(LC_ALL, 'nl_NL');
 
-// define app paths
 define('DS', DIRECTORY_SEPARATOR);
 define('ABS_PATH', realpath(__DIR__ . '/..'));
 
+// define app paths
 define('SRC_PATH', ABS_PATH . DS . 'src');
 define('APP_PATH', SRC_PATH . DS . 'example');
 define('CONFIG_PATH', APP_PATH . DS . 'config');
