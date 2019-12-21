@@ -90,7 +90,10 @@ class App
         $routes = require CONFIG_PATH . DS . 'routes.php';
         $routes($app);
 
-        $app->getRouteCollector()->setCacheFile(CACHE_PATH . DS . 'routes.cache');
+        // Cache routes
+        if (ENABLE_ROUTE_CACHING) {
+            $app->getRouteCollector()->setCacheFile(CACHE_PATH . DS . 'routes.cache');
+        }
 
         // Run will be true unless we are doing a unit test
         if ($run) {
