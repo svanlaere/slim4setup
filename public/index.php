@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Example\App;
 
 // disable error reporting in production
+// by settings this value to false
 define('DEBUG', true);
 
 // set to true to start route caching
@@ -27,9 +28,8 @@ define('CACHE_PATH', APP_PATH . DS . 'cache');
 define('DEBUG_PATH', APP_PATH . DS . 'debug');
 
 if (defined('DEBUG')) {
-    ini_set('error_log', DEBUG_PATH . DS . 'error.log');
     if (DEBUG === true) {
-        error_reporting(E_ALL | E_STRICT);
+        error_reporting(E_ALL);
         ini_set('display_errors', '1');
         ini_set('display_startup_errors', '1');
         ini_set('html_errors', '1');
