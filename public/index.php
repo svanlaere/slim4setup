@@ -18,7 +18,8 @@ date_default_timezone_set('Europe/Amsterdam');
 setlocale(LC_ALL, 'nl_NL');
 
 define('DS', DIRECTORY_SEPARATOR);
-define('ABS_PATH', realpath(__DIR__ . '/..'));
+define('ABS_PATH', dirname(__DIR__));
+
 
 // define app paths
 define('SRC_PATH', ABS_PATH . DS . 'src');
