@@ -16,6 +16,8 @@ use Slim\Csrf\Guard;
 use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Example\Middleware\AccessControlMiddleware;
+use Example\Middleware\SecurityHeadersMiddleware;
 use Example\Renderer\HtmlErrorRenderer;
 
 class App
@@ -47,16 +49,6 @@ class App
         AppFactory::setContainer($container);
         $app = AppFactory::create();
 
-        // Set desired headers for instance security headers
-        // See https://securityheaders.com for more information
-        $app->add(function ($request, $handler) {
-            $response = $handler->handle($request);
-            return $response
-                ->withHeader('Access-Control-Allow-Origin', '*')
-                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-        });
-
         $responseFactory = $app->getResponseFactory();
 
         // Register Middleware On Container
@@ -75,12 +67,15 @@ class App
         // Register Twig middleware
         $app->add(TwigMiddleware::createFromContainer($app, Twig::class));
 
+        // Register before middleware for all routes
+        $app->add(AccessControlMiddleware::class);
+        $app->add(SecurityHeadersMiddleware::class);
+
         // Enable to register CSRF middleware for all routes
         $app->add(Guard::class);
 
-        $configuration = new SameSiteCookieConfiguration();
-
         // Register the samesite cookie middleware
+        $configuration = new SameSiteCookieConfiguration();
         $app->add(new SameSiteCookieMiddleware($configuration));
 
         // Start the native PHP session handler and fetch the session attributes
