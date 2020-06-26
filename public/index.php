@@ -14,6 +14,12 @@ define('ENABLE_ROUTE_CACHING', false);
 
 // set app default settings
 ini_set('default_charset', 'UTF-8');
+ini_set('session.name', 'Secure-PHPSESSID');
+ini_set('session.cookie_domain', 'your-domain.ext');
+ini_set('session.cookie_samesite', 'Strict');
+ini_set('session.cookie_httponly', '1');
+ini_set('session.cookie_secure', '1');
+
 date_default_timezone_set('Europe/Amsterdam');
 setlocale(LC_ALL, 'nl_NL');
 
