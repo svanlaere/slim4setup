@@ -24,10 +24,11 @@ class SecurityHeadersMiddleware
         // See https://securityheaders.com for more information
         $response = $handler->handle($request);
         return $response
-            ->withHeader("Content-Security-Policy", "default-src 'self'")
-            ->withHeader("X-Content-Security-Policy", "default-src 'self'")
+            ->withoutHeader("Content-Security-Policy")
+            ->withoutHeader("X-Content-Security-Policy")
+            ->withHeader("Content-Security-Policy", "default-src 'none'; img-src https:; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests")
+            ->withHeader("X-Content-Security-Policy", "default-src 'none'; img-src https:; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests")
             ->withHeader("Feature-Policy", "microphone 'none'; payment 'none'; sync-xhr 'self'")
-            ->withHeader("Content-Security-Policy", "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';")
             ->withHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
             ->withHeader("Referrer-Policy", "same-origin")
             ->withHeader("X-XSS-Protection", "1; mode=block")
@@ -35,9 +36,8 @@ class SecurityHeadersMiddleware
             ->withHeader("X-Content-Type-Options", "nosniff")
             ->withHeader("Strict-Transport-Security", "max-age=31536000")
             ->withHeader("Expect-CT", "max-age=7776000, enforce")
-            ->withHeader("Set-Cookie", "name=value; httpOnly")
             ->withHeader("X-UA-Compatible", "IE=edge,chrome=1")
             ->withHeader("X-Robots-Tag", "noindex, nofollow")
-            ->withHeader("X-Powered-By", "Stichting KUBES");
+            ->withHeader("X-Powered-By", "Slim Framework");
     }
 }
