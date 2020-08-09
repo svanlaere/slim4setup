@@ -26,8 +26,8 @@ class SecurityHeadersMiddleware
         return $response
             ->withoutHeader("Content-Security-Policy")
             ->withoutHeader("X-Content-Security-Policy")
-            ->withHeader("Content-Security-Policy", "default-src 'none'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self; frame-ancestors 'self'; upgrade-insecure-requests")
-            ->withHeader("X-Content-Security-Policy", "default-src 'none'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'self'; script-src 'self'; style-src 'self';  base-uri 'self'; form-action 'self; frame-ancestors 'self'; upgrade-insecure-requests")
+            ->withHeader("Content-Security-Policy", "default-src 'none'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'self'; script-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests")
+            ->withHeader("X-Content-Security-Policy", "default-src 'none'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; object-src 'self'; script-src 'self'; style-src 'self';  base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests")
             ->withHeader("Feature-Policy", "microphone 'none'; payment 'none'; sync-xhr 'self'")
             ->withHeader("Strict-Transport-Security", "max-age=31536000; includeSubDomains")
             ->withHeader("Referrer-Policy", "same-origin")
