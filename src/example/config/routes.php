@@ -12,7 +12,7 @@ return function (App $app) {
 
     $app->get('/', HomeController::class)->setName('home');
     $app->get('/demo', DemoController::class)->setName('demo');
-    $app->get('/hello[/{name:[a-z0-9-]', HelloController::class)->setName('hello');
+    $app->get('/hello[/{name:[a-z0-9-]]', HelloController::class)->setName('hello');
 
     // Example of how to use a route group 
     $app->group('/member', function (Group $group) {
